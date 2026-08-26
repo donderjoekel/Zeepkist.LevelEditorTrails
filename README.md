@@ -1,77 +1,68 @@
 # Zeepkist-LevelEditorTrails
 
-A mod that draws trails in the level editor for the runs that you've played. Helps with guesstimating where your next block(s) should go!
+A mod that draws trails in the level editor for completed test runs.
+The trails show the path of each test run.
+The trails help you place the next blocks.
 
 ## Installation
 
-### Installing BepInEx
-
-Before installing LevelEditorTrails, you need to have BepInEx installed. The easiest way to install BepInEx for Zeepkist is using one of these community tools:
-
-- **Windows**: [Modkist Revamped](https://github.com/donderjoekel/ModkistRevamped) - A modloader for Zeepkist using mod.io with a user-friendly interface
-- **Linux**: [zeeper](https://codeberg.org/Vulpesx/zeeper) - A command-line tool for managing Zeepkist mods and installing BepInEx
-
-Alternatively, you can manually install BepInEx by following the [official BepInEx documentation](https://docs.bepinex.dev/articles/user_guide/installation/index.html).
-
-### Installing LevelEditorTrails
-
-You can install LevelEditorTrails using the same tools mentioned above for installing BepInEx:
-
-- **Windows**: Use [Modkist Revamped](https://github.com/donderjoekel/ModkistRevamped) to install LevelEditorTrails through its mod browser
-- **Linux**: Use [zeeper](https://codeberg.org/Vulpesx/zeeper) to install LevelEditorTrails via command line
-
-Alternatively, you can install LevelEditorTrails manually:
-
-1. Download the latest LevelEditorTrails release
-2. Place the `net.tnrd.zeepkist.leveleditortrails.dll` file in your `BepInEx/plugins` directory
-3. Launch Zeepkist - LevelEditorTrails will load automatically
+Install LevelEditorTrails with [Modkist](https://github.com/Thundernerd/ModkistMKII).
+Modkist installs BepInEx and ZeepSDK.
 
 ## How to use
 
-Once installed, LevelEditorTrails automatically records your runs when you test a level in the level editor:
+LevelEditorTrails records each test run in the level editor.
 
-1. Open the level editor in Zeepkist
-2. Test your level by clicking the test button or pressing the test key
-3. The mod will automatically record your trail as you play
-4. After finishing your test run, return to the editor to see your trail visualized
-5. Multiple test runs will create multiple trails, helping you see different paths and optimize your level design
+To record a trail:
+
+1. Open the level editor in Zeepkist.
+2. Click the test button, or press the test key.
+3. Play the level. The mod records a trail during the test run.
+4. After you finish the test run, return to the editor. The editor shows the trail.
+
+Each extra test run adds a trail.
+The trails show different paths.
 
 ### Controls
 
-- **F7**: Toggle visibility of all trails on/off
-- **F6**: Toggle visibility of time markers on/off
-- **F8**: Remove all recorded trails
+Default keys:
 
-## Configuration
+- **F7**: This key shows or hides all trails.
+- **F6**: This key shows or hides the time markers.
+- **F8**: This key removes all recorded trails.
 
-LevelEditorTrails can be customized through its configuration file. The configuration file is located at `BepInEx/config/LevelEditorTrails.cfg`.
+## Config
 
-You can edit this file manually with any text editor, or access the settings in-game through Zeep mod settings for a more user-friendly interface.
+You can edit the config file of LevelEditorTrails.
+The config file is at `BepInEx/config/LevelEditorTrails.cfg`.
 
-### Configuration Options
+You can edit this file with a text editor.
+You can also edit the config in the game with Zeep mod settings.
 
-#### General Settings
+### Config keys
 
-| Key                   	| Default value 	| Description                                      	|
-|-----------------------	|---------------	|--------------------------------------------------	|
-| Maximum Recordings    	| 5             	| Maximum number of trails to keep in memory. Older trails will be removed when this limit is reached	|
-| Trail Width           	| 0.5           	| Min = 0.1 / Max = 2. The thickness of the trail lines. Higher values create thicker lines	|
-| Draw Time Markers     	| true          	| Whether to draw time markers along the trails	|
-| Time Marker Step      	| 1.0           	| The time in seconds between every time marker	|
+#### General
+
+| Key                | Default value | Description                                                                                          |
+|--------------------|---------------|------------------------------------------------------------------------------------------------------|
+| Maximum Recordings | 5             | The mod keeps this many trails in memory. When the count gets to this limit, the mod removes the oldest trail. |
+| Trail Width        | 0.5           | The width of the trail line is between 0.1 and 2. A larger value makes a thicker line. |
+| Draw Time Markers  | true          | If Draw Time Markers is true, the mod shows time markers on the trails.                              |
+| Time Marker Step   | 1.0           | This value is the time in seconds between time markers.                                              |
 
 #### Keyboard Shortcuts
 
-| Key                   	| Default value 	| Description                                      	|
-|-----------------------	|---------------	|--------------------------------------------------	|
-| Toggle Line Visibility	| F7            	| Keyboard key to toggle the visibility of all trails on/off	|
-| Toggle Time Marker Visibility | F6       	| Keyboard key to toggle the visibility of time markers on/off	|
-| Remove All Lines      	| F8            	| Keyboard key to remove all recorded trails	|
+| Key                           | Default value | Description                                    |
+|-------------------------------|---------------|------------------------------------------------|
+| Toggle Line Visibility        | F7            | This key shows or hides all trails.            |
+| Toggle Time Marker Visibility | F6            | This key shows or hides the time markers.      |
+| Remove All Lines              | F8            | This key removes all recorded trails.          |
 
-#### Color Settings
+#### Colors
 
-| Key                   	| Default value 	| Description                                      	|
-|-----------------------	|---------------	|--------------------------------------------------	|
-| Color Mode            	| Gradient      	| The color mode for trails. Options: `Single` (all trails same color) or `Gradient` (color transitions from newest to oldest trail)	|
-| Color                  	| White         	| The color used when Color Mode is set to `Single`	|
-| Start Color            	| White         	| The color for the newest trail when Color Mode is set to `Gradient`	|
-| End Color              	| Black         	| The color for the oldest trail when Color Mode is set to `Gradient`	|
+| Key         | Default value | Description                                                                              |
+|-------------|---------------|------------------------------------------------------------------------------------------|
+| Color Mode  | Gradient      | This is the color mode for the trails. `Single` uses one color for all trails. `Gradient` changes the color from the newest trail to the oldest trail. |
+| Color       | White         | If Color Mode is `Single`, all trails use this color.                                    |
+| Start Color | White         | If Color Mode is `Gradient`, the newest trail uses this color.                           |
+| End Color   | Black         | If Color Mode is `Gradient`, the oldest trail uses this color.                           |
