@@ -11,7 +11,7 @@ public class LEV_ReturnToMainMenu_ReturnToMainMenu
     {
         IsLeavingToMainMenu = false;
 
-        __state = __instance.central.manager.unsavedContent;
+        __state = PlayerManager.Instance.unsavedContent;
     }
 
     private static void Postfix(LEV_ReturnToMainMenu __instance, bool __state)
